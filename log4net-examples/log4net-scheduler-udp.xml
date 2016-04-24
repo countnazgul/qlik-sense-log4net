@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<configuration>
+    <appender name="NodeSchedulerLogger" type="log4net.Appender.UdpAppender">
+        <param name="remoteAddress" value="localhost" />
+        <param name="remotePort" value="9998" />
+        <layout type="log4net.Layout.PatternLayout">
+            <param name="conversionpattern" value="scheduler;%message;%property{ObjectId};%property{ObjectName};%property{Context};%property{Command};%property{Result};" />
+
+        </layout>
+    </appender>
+   <logger name="AuditActivity.Scheduler">
+      <appender-ref ref="NodeSchedulerLogger" />
+   </logger>
+</configuration>

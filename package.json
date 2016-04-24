@@ -1,0 +1,21 @@
+{
+  "name": "Qlik-Sense-log4net",
+  "version": "0.0.1",
+  "description": "Backend service to handle Scheduler logs",
+  "keywords": [
+    "qlik",
+    "sense",
+    "notification",
+    "scheduler",
+    "log4net"
+  ],
+  "author": "stefan.stoichev@gmail.com",
+  "license": "Unlicense",
+  "homepage": "https://sstoichev.eu",
+  "dependencies": {
+    "async": ">=2.0.0-rc.3",
+    "nodemailer": "1.11.0",
+    "nodemailer-sendgrid-transport": "0.2.0",
+    "qrs": "2.0.2"
+  }
+}

@@ -1,0 +1,20 @@
+var config = {};
+
+config.main = {};
+config.qs = {};
+config.mail = {};
+
+config.main.portudp = 9998;
+config.main.calledurl = 'http://localhost';
+
+config.qs.host = 'https://localhost:4242';
+
+config.mail.host = 'my.smtp.server';
+config.mail.port = 25;
+config.mail.user = 'smtp_user';
+config.mail.pass = 'smtp_pass';
+config.mail.from = 'qs@qs.com';
+config.mail.ssl = false;
+config.mail.tls = ''; // for example if using outlook.com as smtp server: SSLv3
+
+module.exports = config;
