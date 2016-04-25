@@ -6,6 +6,29 @@ var config = require('./config');
 var sgTransport = require('nodemailer-sendgrid-transport');
 var QRS = require('qrs');
 var fs = require('fs');
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
+var swig = require('swig');
+var cons = require('consolidate');
+var Datastore = require('nedb');
+
+var NotificationsDB = new Datastore({
+  filename: 'data/notifications.db',
+  autoload: true
+});
+NotificationsDB.loadDatabase(function(err) { // Callback is optional
+  console.log('*** Notifications db is loaded');
+});
+
+app.use(bodyParser.json());
+app.engine('html', cons.swig);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+app.use(express.static('public'));
+app.use(morgan('tiny'));
+
 
 var PORT = config.main.portudp;
 
@@ -27,6 +50,11 @@ server.on('listening', function () {
     var address = server.address();
     console.log('UDP Server listening on ' + address.address + ":" + address.port);
 });
+
+qrs.request( 'GET', 'qrs/Task/full', null, null)
+   .then( function( data ) {
+     //console.log(data)
+   });
 
 server.on('message', function (message, remote) {
     message = message.toString();

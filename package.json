@@ -16,6 +16,12 @@
     "async": ">=2.0.0-rc.3",
     "nodemailer": "1.11.0",
     "nodemailer-sendgrid-transport": "0.2.0",
-    "qrs": "2.0.2"
+    "qrs": "2.0.x",
+    "express": "4.13.x",
+    "body-parser": "1.15.x",
+    "morgan": "1.7.x",
+    "nedb": "1.8.x",
+    "swig": "1.4.x",
+    "consolidate": "0.14.x"
   }
 }
